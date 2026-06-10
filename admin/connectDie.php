@@ -80,7 +80,7 @@
                     <div class="card-body p-4">
 
                         <div class="text-center w-75 m-auto">
-                            <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Like_Girl 5.2.1-Stable</h4>
+                            <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Like_Girl 5.2.1</h4>
                             <div class="info">请检查数据库信息是否配置正确<i style="color: #ff9b9b;"></i></div>
                         </div>
                         <div class="text-center w-75 m-auto" style="margin-bottom: 40px!important;">
@@ -120,8 +120,7 @@
 <!-- end page -->
 
 <footer class="footer footer-alt">
-    Copyright © 2022 Ki. && <a href="https://blog.kikiw.cn/index.php/archives/24/" target="_blank">Like_Girl</a> All
-    Rights Reserved.
+    Copyright © 2022 Ki. && <a href="https://blog.kikiw.cn/index.php/archives/24/" target="_blank">Like_Girl</a> All Rights Reserved.
 </footer>
 <script src="../Style/jquery/jquery.min.js"></script>
 <script src="../Style/pagelir/spotlight.bundle.js"></script>

@@ -30,7 +30,13 @@ $db_password = "123456";
 $db_name = "love_db";
 
 //敏感信息修改安全码 建议设置复杂一些
-$Like_Code = "Love";
+// Docker users can set LIKEGIRL_SECURITY_CODE instead of editing this file.
+$Like_Code = getenv('LIKEGIRL_SECURITY_CODE') ?: "Love";
 
 //版本号
-$version = 20250903;
+$version = 20260601;
+
+// SQLite settings for the Docker image. The old MySQL values are kept above so
+// the original admin UI and variable names do not need to change.
+$sqlite_path = getenv('LIKEGIRL_SQLITE_PATH') ?: __DIR__ . '/../data/likegirl.sqlite';
+$sqlite_seed_file = getenv('LIKEGIRL_SQLITE_SEED') ?: __DIR__ . '/../love_db.sql';

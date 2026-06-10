@@ -331,7 +331,7 @@ CREATE TABLE `text` (
 --
 
 INSERT INTO `text` (`id`, `boy`, `girl`, `title`, `logo`, `writing`, `boyimg`, `girlimg`, `startTime`, `icp`, `Copyright`, `card1`, `card2`, `card3`, `deci1`, `deci2`, `deci3`, `bgimg`, `userQQ`, `userName`, `Animation`) VALUES
-(1, 'Ki', 'Li', 'Like_Girl v5.2.0', 'Like_Girl {v5.2.0}', '爱晨雾漫过青瓦，爱暮色染透篱笆，更爱与君并肩立，看遍这人间烟火里的朝暮与年华。', '647159607', '917640289', '2022-06-05T00:07', '粤ICP备2021037776号', 'Copyright © 2022 - 2025 Like_Girl All Rights Reserved.', '点点滴滴', '留言板', '关于我们', '有人愿意听你碎碎念念也很浪漫', '在这里写下我们的留言祝福', '我们之间认识的经历回忆', 'Style/img/bgCover.png', '3439780232', 'Ki', 1);
+(1, 'Ki', 'Li', 'Like_Girl v5.2.1', 'Like_Girl {v5.2.1}', '爱晨雾漫过青瓦，爱暮色染透篱笆，更爱与君并肩立，看遍这人间烟火里的朝暮与年华。', '647159607', '917640289', '2022-06-05T00:07', '赣ICP备2026010001号', 'Copyright © 2022 - 2026 Like_Girl All Rights Reserved.', '点点滴滴', '留言板', '关于我们', '有人愿意听你碎碎念念也很浪漫', '在这里写下我们的留言祝福', '我们之间认识的经历回忆', 'Style/img/bgCover.png', '3439780232', 'Ki', 1);
 
 -- --------------------------------------------------------
 

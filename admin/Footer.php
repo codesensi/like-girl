@@ -11,8 +11,7 @@ include_once 'ajax.php';
 <footer class="footer">
     <div class="row footer_center">
         <div class="col-md-6">
-            Copyright © 2022-<?php echo date("Y")  ?> <a href="https://blog.kikiw.cn/index.php/archives/52/" target="_blank">Ki</a> All Rights
-            Reserved.
+            Copyright © 2022-<?php echo date("Y")  ?> <a href="https://blog.kikiw.cn/index.php/archives/52/" target="_blank">Ki</a> All Rights Reserved.
         </div>
     </div>
 </footer>

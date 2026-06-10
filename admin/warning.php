@@ -110,7 +110,7 @@ if ($file){
                     <div class="card-body p-4">
 
                         <div class="text-center w-75 m-auto">
-                            <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Like_Girl 5.2.1-Stable</h4>
+                            <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Like_Girl 5.2.1</h4>
                             <div class="info">温馨提示：请停止你的行为<i style="color: #ff9b9b;"><?php echo $ip ?></i></div>
                         </div>
                         <div class="text-center w-75 m-auto" style="margin-bottom: 40px!important;">

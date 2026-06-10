@@ -61,7 +61,7 @@ include_once 'Nav.php';
                     <div class="form-group mb-3">
                         <label for="validationCustom05">安全码</label>
                         <span class="badge badge-danger-lighten"style="font-size: 0.8rem;">修改敏感信息必须填写</span>
-                        <input type="password" class="form-control"  name="SCode" value="" placeholder="请输入数据库配置文件安全码">
+                        <input type="password" class="form-control"  name="SCode" value="" placeholder="请输入安全码">
                     </div>
 
                     <div class="form-group mb-3 text_right">

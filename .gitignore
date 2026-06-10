@@ -1,0 +1,8 @@
+data/*.sqlite
+data/*.sqlite-*
+data/*.db
+data/*.db-*
+*.log
+
+.idea
+ip.txt
