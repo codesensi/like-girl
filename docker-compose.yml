@@ -1,0 +1,16 @@
+services:
+  like-girl:
+    image: codesensi/like-girl:latest
+    container_name: like-girl
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      LIKEGIRL_SQLITE_PATH: /var/www/html/data/likegirl.sqlite
+      LIKEGIRL_SQLITE_SEED: /var/www/html/love_db.sql
+      LIKEGIRL_SECURITY_CODE: ${LIKEGIRL_SECURITY_CODE:-Love}
+    volumes:
+      - data:/var/www/html/data
+
+volumes:
+  data:
