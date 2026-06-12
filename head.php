@@ -353,16 +353,16 @@ if ($diy['Pjaxkg'] == "1"):
         <div class="central central-800">
             <div
                 class="middle <?php if ($text['Animation'] == "1") { ?>animated fadeInDown<?php } ?> <?php if ($diy['Blurkg'] == "2") { ?>Blurkg<?php } ?>">
-                <div class="img-male">
-                    <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $text['boyimg'] ?>&s=640" draggable="false">
-                    <span><?php echo $text['boy'] ?></span>
+                <div class="img-female">
+                    <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $text['girlimg'] ?>&s=640" draggable="false">
+                    <span><?php echo $text['girl'] ?></span>
                 </div>
                 <div class="love-icon">
                     <img src="Style/img/like.svg" draggable="false">
                 </div>
-                <div class="img-female">
-                    <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $text['girlimg'] ?>&s=640" draggable="false">
-                    <span><?php echo $text['girl'] ?></span>
+                <div class="img-male">
+                    <img src="https://q1.qlogo.cn/g?b=qq&nk=<?php echo $text['boyimg'] ?>&s=640" draggable="false">
+                    <span><?php echo $text['boy'] ?></span>
                 </div>
             </div>
         </div>

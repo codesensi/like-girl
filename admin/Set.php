@@ -55,27 +55,24 @@ include_once 'Nav.php';
 
                 <form class="needs-validation" action="loveadminPost.php" method="post" novalidate>
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">男主Nanme</label>
-                        <input type="text" class="form-control"  placeholder="请输入男主Name"
-                               name="boy" value="<?php echo $text['boy'] ?>" required>
-                    </div>
-                    <div class="form-group mb-3">
                         <label for="validationCustom02">女主Name</label>
                         <input type="text" class="form-control" placeholder="请输入女主Name"
                                name="girl" value="<?php echo $text['girl'] ?>" required>
-
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom03">男主QQ</label>
-                        <input type="text" class="form-control"  placeholder="请输入男主QQ（用于显示头像）"
-                               name="boyimg" value="<?php echo $text['boyimg'] ?>" required>
-
+                        <label for="validationCustom01">男主Name</label>
+                        <input type="text" class="form-control"  placeholder="请输入男主Name"
+                               name="boy" value="<?php echo $text['boy'] ?>" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom04">女主QQ</label>
                         <input type="text" class="form-control"  placeholder="请输入女主QQ（用于显示头像）"
                                name="girlimg" value="<?php echo $text['girlimg'] ?>" required>
-
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="validationCustom03">男主QQ</label>
+                        <input type="text" class="form-control"  placeholder="请输入男主QQ（用于显示头像）"
+                               name="boyimg" value="<?php echo $text['boyimg'] ?>" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom05">起始时间</label>
