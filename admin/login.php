@@ -1,12 +1,3 @@
-<!--
- * @Author: Ki.
- * @Date: 2022-12-21 07:35:43
- * @LastEditors: Ki.
- * @LastEditTime: 2022-12-21 07:51:06
- * @Description: 愿得一心人 白头不相离
- * Copyright (c) 2022 by Ki All Rights Reserved.
--->
-
 <?php
 session_start();
 $errorMsg = '';
@@ -15,6 +6,15 @@ if (isset($_SESSION['login_error'])) {
     unset($_SESSION['login_error']);
 }
 ?>
+
+<!--
+ * @Author: Ki.
+ * @Date: 2022-12-21 07:35:43
+ * @LastEditors: Ki.
+ * @LastEditTime: 2022-12-21 07:51:06
+ * @Description: 愿得一心人 白头不相离
+ * Copyright (c) 2022 by Ki All Rights Reserved.
+-->
 
 <!DOCTYPE html>
 <html lang="zh-CN">
