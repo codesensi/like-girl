@@ -4,8 +4,17 @@
  * @LastEditors: Ki.
  * @LastEditTime: 2022-12-21 07:51:06
  * @Description: 愿得一心人 白头不相离
- * Copyright (c) 2022 by Ki All Rights Reserved. 
+ * Copyright (c) 2022 by Ki All Rights Reserved.
 -->
+
+<?php
+session_start();
+$errorMsg = '';
+if (isset($_SESSION['login_error'])) {
+    $errorMsg = $_SESSION['login_error'];
+    unset($_SESSION['login_error']);
+}
+?>
 
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -20,6 +29,7 @@
     <link href="/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
     <link href="/admin/assets/css/app.min.css" rel="stylesheet" type="text/css"/>
     <link href="/Style/css/loading.css" rel="stylesheet">
+    <link href="../Style/toastr/toastr.css" rel="stylesheet">
 </head>
 
 <div id="Loadanimation" style="z-index:999999;">
@@ -33,6 +43,15 @@
     </div>
 </div>
 <script src="../Style/jquery/jquery.min.js"></script>
+<script src="../Style/toastr/toastr.js"></script>
+<?php if ($errorMsg): ?>
+<script>
+    $(function() {
+        toastr.options = { positionClass: 'toast-top-center', timeOut: 3000 };
+        toastr.error('<?php echo $errorMsg; ?>');
+    });
+</script>
+<?php endif; ?>
 <script>
     $(function () {
         $("#Loadanimation").fadeOut(1000);

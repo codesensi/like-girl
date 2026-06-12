@@ -14,6 +14,15 @@ include_once "LG_Info.php";
 
 
 
+<?php if (!empty($_SESSION['login_success'])): unset($_SESSION['login_success']); ?>
+<script>
+    $(function() {
+        toastr.options = { positionClass: 'toast-top-center', timeOut: 3000 };
+        toastr.success('登录成功！欢迎回来~');
+    });
+</script>
+<?php endif; ?>
+
 <div class="row">
     <div class="col-md-6 col-xl-4">
         <div class="card">

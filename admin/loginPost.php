@@ -20,13 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if ($USER == $Login_user) {
     if ($PW == $Login_pw) {
         $_SESSION['loginadmin'] = $USER;
-        echo "<script>alert('登录成功 欢迎进入小站后台管理页面！');location.href = '../admin/index.php';</script>";
+        $_SESSION['login_success'] = true;
+        echo "<script>location.href = '../admin/index.php';</script>";
     } else {
         //密码错误
-        die("<script>alert('登录失败，用户名或密码错误！！！');history.back();</script>");
+        $_SESSION['login_error'] = '用户名或密码错误！！！';
+        die("<script>location.href = '../admin/login.php';</script>");
     }
 } else {
     //用户名错误
-    die("<script>alert('登录失败，用户名或密码错误！！！');history.back();</script>");
+    $_SESSION['login_error'] = '用户名或密码错误！！！';
+    die("<script>location.href = '../admin/login.php';</script>");
 }
 
