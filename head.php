@@ -118,8 +118,6 @@ $Animation = $text['Animation'];
         }
     }
 
-    show_date_time();
-    
 let currentPage = 1;
 const limit = 6;
 let total = 0;

@@ -18,6 +18,7 @@ include_once 'head.php';
             <b id="fen"></b>
             <b id="miao"></b>
         </div>
+        <script>show_date_time();</script>
         <!-- 卡片区域 -->
         <div class="card-wrap">
             <div class="row central">
