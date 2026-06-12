@@ -1,3 +1,13 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (empty($_SESSION['loginadmin'])) {
+    header("Location: /admin/login.php");
+    exit;
+}
+?>
 <!--
  * @Version：Like Girl 5.2.1-Stable
  * @Author: Ki.
@@ -11,17 +21,6 @@
  * @Warning：禁止以任何方式出售本项目 如有发现一切后果自行负责
  * @Message：开发不易 版权信息请保留 (更改版权可耻 请勿使用本程序)
 -->
-
-<?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (empty($_SESSION['loginadmin'])) {
-    header("Location: /admin/login.php");
-    exit;
-}
-?>
 
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/ipjc.php');
