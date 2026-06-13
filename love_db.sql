@@ -179,7 +179,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `user`, `pw`) VALUES
-(1, 'admin', '8c3ee407c836e339d9ec61a43d1dcaeb');
+(1, 'admin', '0c8584b1f181b24ebf75d6f82a0e0103');
 
 -- --------------------------------------------------------
 
