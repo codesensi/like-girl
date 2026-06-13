@@ -29,7 +29,7 @@ $Imglist = mysqli_fetch_array($resImg);
                     </div>
 
                     <div class="form-group mb-3" id="img_url">
-                        <label for="validationCustom01">图片URL</label>
+                        <label for="validationCustom01">图片地址</label>
                         <input type="text" name="imgUrl" class="form-control" placeholder="请输入图片URL地址" value="<?php echo $Imglist['imgUrl'] ?>" required>
                     </div>
                     <div class="form-group mb-3 text_right">
