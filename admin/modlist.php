@@ -13,7 +13,7 @@ $imgurl = $_GET['imgurl'];
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title mb-3 size_18">修改事件—— <?php echo $name ?></h4>
+                <h4 class="header-title mb-3 size_18">修改事件<?php echo $name ?></h4>
 
                 <form class="needs-validation" action="listupda.php" method="post" onsubmit="return check()" novalidate>
                     <div class="form-group mb-3">
