@@ -14,18 +14,19 @@ include_once 'Nav.php';
                 <form class="needs-validation" m action="littleAddPost.php" method="post" onsubmit="return check()"
                       novalidate>
                     <div class="form-group col-sm-4">
-                        <label for="validationCustom01">发布者Name</label>
+                        <label for="validationCustom01">发布人</label>
                             <select class="form-control" id="example-select" name="articlename">
                             	<option value="<?php echo $text['boy'] ?>"><?php echo $text['boy'] ?></option>
                             	<option value="<?php echo $text['girl'] ?>"><?php echo $text['girl'] ?></option>
                             </select>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">标题</label>
-                        <input type="text" class="form-control" id="validationCustom01" placeholder="请输入标题"
+                        <label for="validationCustom01">文章标题</label>
+                        <input type="text" class="form-control" id="validationCustom01" placeholder="请输入文章标题"
                                name="articletitle" required>
                     </div>
                     <div id="test-editor">
+                        <label for="validationCustom01">文章内容</label>
                         <textarea name="articletext"></textarea>
                     </div>
                     <div class="form-group mb-3 text_right">
