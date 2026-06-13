@@ -34,7 +34,7 @@ $Imglist = mysqli_fetch_array($resImg);
                     </div>
                     <div class="form-group mb-3 text_right">
                         <input name="id" value="<?php echo $id ?>" type="hidden">
-                        <button class="btn btn-primary" type="button" id="ImgUpdaPost">新增相册</button>
+                        <button class="btn btn-primary" type="button" id="ImgUpdaPost">修改相册</button>
                     </div>
                 </form>
 

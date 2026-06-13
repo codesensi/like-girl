@@ -9,7 +9,7 @@ $inv_date = date("Y-m-d");
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title mb-3 size_18">新增图片</h4>
+                <h4 class="header-title mb-3 size_18">新增相册</h4>
 
                 <form class="needs-validation" action="ImgAddPost.php" method="post" onsubmit="return check()"
                       novalidate>
