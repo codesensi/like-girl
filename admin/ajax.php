@@ -329,6 +329,11 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var icon = $("input[name='icon']").val();
         var img = $("input[name='img']").val();
 
+        if ($.trim(eventname) === '') {
+            toastr["error"]("事件标题不能为空！", "Like_Girl");
+            return false;
+        }
+
         $.ajax({
             url: "listaddPost.php",
             data: {
@@ -386,6 +391,12 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var icon = $("input[name='icon']").val();
         var imgurl = $("input[name='imgurl']").val();
         var id = $("input[name='id']").val();
+
+        if ($.trim(eventname) === '') {
+            toastr["error"]("事件标题不能为空！", "Like_Girl");
+            return false;
+        }
+
         $.ajax({
             url: "listupda.php",
             data: {
