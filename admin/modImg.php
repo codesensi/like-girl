@@ -14,7 +14,7 @@ $Imglist = mysqli_fetch_array($resImg);
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="header-title mb-3 size_18">修改相册—— ID：<?php echo $Imglist['id'] ?></h4>
+                <h4 class="header-title mb-3 size_18">修改相册</h4>
 
                 <form class="needs-validation" action="ImgUpdaPost.php" method="post" onsubmit="return check()"
                       novalidate>
