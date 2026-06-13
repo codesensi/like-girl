@@ -9,22 +9,21 @@ $limit = isset($_POST['limit']) ? intval($_POST['limit']) : 6;
 $offset = ($page - 1) * $limit;
 
 // 查询总数
-$totalRes = $connect->query("SELECT COUNT(*) as total FROM loveImg");
-$total = $totalRes->fetch_assoc()['total'];
+$totalRes = mysqli_query($connect, "SELECT COUNT(*) as total FROM loveImg");
+$totalRow = mysqli_fetch_assoc($totalRes);
+$total = $totalRow ? $totalRow['total'] : 0;
 
-// 预处理分页查询
-$stmt = $connect->prepare("SELECT imgUrl, imgDatd, imgText FROM loveImg ORDER BY id DESC LIMIT ?, ?");
-$stmt->bind_param("ii", $offset, $limit);
-$stmt->execute();
-$result = $stmt->get_result();
-
+// 分页查询
 $data = [];
-while ($row = $result->fetch_assoc()) {
-    $data[] = [
-        'img' => $row['imgUrl'],
-        'date' => $row['imgDatd'],
-        'text' => $row['imgText']
-    ];
+$result = mysqli_query($connect, "SELECT imgUrl, imgDatd, imgText FROM loveImg ORDER BY id DESC LIMIT " . intval($limit) . " OFFSET " . intval($offset));
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = [
+            'img' => $row['imgUrl'],
+            'date' => $row['imgDatd'],
+            'text' => $row['imgText']
+        ];
+    }
 }
 
 echo json_encode([
