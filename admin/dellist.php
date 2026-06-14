@@ -10,14 +10,14 @@ if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
         $sql = "delete from lovelist where id = $id";
         $result = mysqli_query($connect, $sql);
         if ($result) {
-            echo "<script>alert('删除事件成功');location.href = '/admin/lovelist.php';</script>";
+            echo "<script>location.href = '/admin/lovelist.php?toastr=delete_success';</script>";
         } else {
-            echo "<script>alert('删除内容失败)';history.back();</script>";
+            echo "<script>location.href = '/admin/lovelist.php?toastr=delete_fail';</script>";
         }
     } else {
-        echo "<script>alert('参数错误');history.back();</script>";
+        echo "<script>location.href = '/admin/lovelist.php?toastr=param_error';</script>";
     }
 } else {
-    echo "<script>alert('非法操作，行为已记录');location.href = 'warning.php?route=$file';</script>";
+    echo "<script>location.href = 'warning.php?route=$file';</script>";
 }
 
