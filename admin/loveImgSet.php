@@ -5,6 +5,22 @@ $loveImg = "select * from loveImg order by id desc";
 $resImg = mysqli_query($connect, $loveImg);
 ?>
 
+<?php
+$toastrMsg = isset($_GET['toastr']) ? $_GET['toastr'] : '';
+if ($toastrMsg): ?>
+<script>
+    $(function() {
+        toastr.options = { positionClass: 'toast-top-center', timeOut: 3000 };
+        <?php if ($toastrMsg === 'delete_success'): ?>
+        toastr.success('删除相册成功！');
+        <?php elseif ($toastrMsg === 'delete_fail'): ?>
+        toastr.error('删除相册失败！');
+        <?php elseif ($toastrMsg === 'param_error'): ?>
+        toastr.error('参数错误！');
+        <?php endif; ?>
+    });
+</script>
+<?php endif; ?>
 
 <link href="assets/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css"/>
 <link href="assets/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css"/>
