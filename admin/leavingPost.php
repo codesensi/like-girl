@@ -51,8 +51,8 @@ $stmt->bind_param("sissss", $Filter_Name, $Filter_QQ, $Filter_Text, $Filter_Time
 $result = $stmt->execute();
 
 if ($result) {
+    setcookie("KiCookie", $Filter_IP, time() + 3600 * 24, "/");
     echo "1";
-    setcookie("KiCookie", $Filter_IP, time() + 3600 * 24);
 } else {
     echo "0:" . $conn->error;
 }
