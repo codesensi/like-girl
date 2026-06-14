@@ -18,7 +18,7 @@ include_once 'Nav.php';
                         </select>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom05">管理员Name</label>
+                        <label for="validationCustom05">管理员姓名</label>
                         <input type="text" class="form-control" id="validationCustom05" placeholder="请输入管理员Name"
                                name="userName" value="<?php echo $text['userName'] ?>" required>
                     </div>
