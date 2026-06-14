@@ -184,6 +184,9 @@ include_once 'head.php';
                         } else if (res == 0) {
                             toastr["error"]("留言提交失败！", "Like_Girl");
                             $('#leavingPost').text('留言失败');
+                        } else if (res.substring(0, 2) === '0:') {
+                            toastr["error"]("留言提交失败：" + res.substring(2), "Like_Girl");
+                            $('#leavingPost').text('留言失败');
                         } else if (res == 3 || res == 30) {
                             toastr["error"]("留言失败——QQ号码格式错", "Like_Girl");
                             $('#leavingPost').text('留言失败');
