@@ -52,7 +52,7 @@ $imgurl = $_GET['imgurl'];
                     </div>
                     <div class="form-group mb-3 text_right">
                         <input name="id" value="<?php echo $id ?>" type="hidden">
-                        <button class="btn btn-primary" type="button" id="listupda">提交修改</button>
+                        <button class="btn btn-primary" type="button" id="listupda">修改事件</button>
                     </div>
                 </form>
 

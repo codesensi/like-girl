@@ -18,16 +18,17 @@ $mod = mysqli_fetch_array($resarticle);
                 <form class="needs-validation" action="littleupda.php" method="post" onsubmit="return check()"
                       novalidate>
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">标题</label>
+                        <label for="validationCustom01">文章标题</label>
                         <input name="articletitle" type="text" class="form-control" id="validationCustom01"
                                placeholder="请输入标题" value="<?php echo $mod['articletitle'] ?>" required>
                     </div>
                     <div id="test-editor">
+                        <label for="validationCustom01">文章内容</label>
                         <textarea name="articletext"><?php echo $mod['articletext'] ?></textarea>
                     </div>
                     <div class="form-group mb-3 text_right">
                         <input name="id" value="<?php echo $id ?>" type="hidden">
-                        <button class="btn btn-primary" type="button" id="littleupda">修改发布</button>
+                        <button class="btn btn-primary" type="button" id="littleupda">修改文章</button>
                     </div>
                 </form>
 

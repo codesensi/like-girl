@@ -30,7 +30,7 @@ include_once 'Nav.php';
                         <textarea name="articletext"></textarea>
                     </div>
                     <div class="form-group mb-3 text_right">
-                        <button class="btn btn-primary" type="button" id="littleAddPost">发布文章</button>
+                        <button class="btn btn-primary" type="button" id="littleAddPost">新增文章</button>
                     </div>
                 </form>
 

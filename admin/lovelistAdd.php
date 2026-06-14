@@ -46,7 +46,7 @@ include_once 'Nav.php';
                                placeholder="请输入图片地址（没有无需填写）" value="">
                     </div>
                     <div class="form-group mb-3 text_right">
-                        <button class="btn btn-primary" type="button" id="listaddPost">提交新增</button>
+                        <button class="btn btn-primary" type="button" id="listaddPost">新增事件</button>
                     </div>
                 </form>
 
