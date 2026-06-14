@@ -207,6 +207,16 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var articletitle = $("input[name='articletitle']").val();
         var articletext = $("textarea[name='articletext']").val();
 
+        if ($.trim(articletitle) === '') {
+            toastr["error"]("文章标题不能为空！", "Like_Girl");
+            return false;
+        }
+
+        if ($.trim(articletext) === '') {
+            toastr["error"]("文章内容不能为空！", "Like_Girl");
+            return false;
+        }
+
         $.ajax({
             url: "littleupda.php",
             data: {
