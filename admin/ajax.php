@@ -387,6 +387,12 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
     $("#ipAddPost").click(function () {
         var ipdz = $("input[name='ipdz']").val();
         var bz = $("input[name='bz']").val();
+
+        if ($.trim(ipdz) === '') {
+            toastr["error"]("IP地址不能为空！", "Like_Girl");
+            return false;
+        }
+
         $.ajax({
             url: "ipAddPost.php",
             data: {
