@@ -97,41 +97,23 @@ include_once 'head.php';
                 if (QQ.length <= 0) {
                     return false
                 }
+                $(".avatar").attr("src", "https://q1.qlogo.cn/g?b=qq&nk=" + QQ + "&s=100");
+                // 直接从浏览器调用 API，不经过 PHP（容器内无网络）
                 $.ajax({
-                    url: "https://loveli.kikiw.cn/admin/infoService.php",
-                    type: "POST",
-                    data:{
-                        action:'qq',
-                        qq:QQ
-                    },
-                    timeout: 5000,
+                    url: "https://v1.apizero.cn/api/qq",
+                    type: "get",
+                    data:{ qq: QQ },
+                    timeout: 8000,
                     dataType: "json",
-                    statusCode: {
-                        500: function (response) {
-                            loadingname();
-                            setTimeout(function () {
-                                removeLoading('test');
-                                toastr["warning"]("获取QQ头像失败 API请求超时 请联系小站管理员！", "Like_Girl");
-                            }, 2000);
-                        }
-                    },
                     success: function (result) {
-                        if (!result.Status) {
-                            removeLoading('test');
-                            toastr["warning"](result.message, "Like_Girl");
+                        if (result && result.code === 0 && result.data && result.data.name) {
+                            $("#nickname").val(result.data.name);
                         } else {
-                            loadingname();
-                            $("#nickname").val(result.data.nick);
-                            $(".avatar").attr("src", result.data.avatar);
-                            setTimeout(function () {
-                                removeLoading('test');
-                                toastr["success"]("获取昵称头像成功", "Like_Girl");
-                            }, 1200);
+                            toastr["warning"]("请手动填写昵称", "Like_Girl");
                         }
                     },
-                    error: function (xhr, status, error) {
-                        removeLoading('test');
-                        toastr["error"]("Request failed: " + error, "Like_Girl");
+                    error: function () {
+                        toastr["warning"]("请手动填写昵称", "Like_Girl");
                     }
                 });
             });
@@ -147,9 +129,9 @@ include_once 'head.php';
                     toastr["warning"]("请填写您的昵称！", "Like_Girl");
                     return false;
                 }
-                let qqlength = /^[0-9]{6,10}$/;
+                let qqlength = /^[0-9]{6,12}$/;
                 if (!qqlength.test(qq)) {
-                    toastr["warning"]("您的QQ号码格式错误 <br/> 请输入由6-10位的数字 <br/>组成的QQ号码！", "Like_Girl");
+                    toastr["warning"]("您的QQ号码格式错误 <br/> 请输入由6-12位的数字 <br/>组成的QQ号码！", "Like_Girl");
                     return false;
                 }
                 if ((qq == 123456) || (qq == 100000) || (qq == 1234567)) {
