@@ -6,6 +6,23 @@ $article = "select * from article order by id desc";
 $resarticle = mysqli_query($connect, $article);
 ?>
 
+<?php
+$toastrMsg = isset($_GET['toastr']) ? $_GET['toastr'] : '';
+if ($toastrMsg): ?>
+<script>
+    $(function() {
+        toastr.options = { positionClass: 'toast-top-center', timeOut: 3000 };
+        <?php if ($toastrMsg === 'delete_success'): ?>
+        toastr.success('删除文章成功！');
+        <?php elseif ($toastrMsg === 'delete_fail'): ?>
+        toastr.error('删除文章失败！');
+        <?php elseif ($toastrMsg === 'param_error'): ?>
+        toastr.error('参数错误！');
+        <?php endif; ?>
+    });
+</script>
+<?php endif; ?>
+
 <link href="/admin/assets/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css"/>
 <link href="/admin/assets/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css"/>
 <link href="/admin/assets/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css"/>

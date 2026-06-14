@@ -10,15 +10,15 @@ if (isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] <> '') {
         $sql = "delete from article where id = $id";
         $result = mysqli_query($connect, $sql);
         if ($result) {
-            echo "<script>alert('删除文章成功');location.href = 'littleSet.php';</script>";
+            echo "<script>location.href = 'littleSet.php?toastr=delete_success';</script>";
         } else {
-            echo "<script>alert('删除文章失败)';history.back();</script>";
+            echo "<script>location.href = 'littleSet.php?toastr=delete_fail';</script>";
         }
     } else {
-        echo "<script>alert('参数错误');history.back();</script>";
+        echo "<script>location.href = 'littleSet.php?toastr=param_error';</script>";
     }
 
 } else {
-    echo "<script>alert('非法操作，行为已记录');location.href = 'warning.php?route=$file';</script>";
+    echo "<script>location.href = 'warning.php?route=$file';</script>";
 }
 
