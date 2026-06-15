@@ -18,6 +18,12 @@ COPY . /var/www/html/
 COPY docker-entrypoint.sh /usr/local/bin/like-girl-entrypoint
 RUN chmod +x /usr/local/bin/like-girl-entrypoint
 
+ENV LANG="C.UTF-8" \
+    TZ="Asia/Shanghai" \
+    PUID=0 \
+    PGID=0 \
+    UMASK=000"
+
 ENV LIKEGIRL_SQLITE_PATH=/var/www/html/data/likegirl.sqlite
 ENV LIKEGIRL_SQLITE_SEED=/var/www/html/love_db.sql
 
