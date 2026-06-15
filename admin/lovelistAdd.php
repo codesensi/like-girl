@@ -18,25 +18,8 @@ include_once 'Nav.php';
                                placeholder="请输入事件标题" value="" required>
                     </div>
                     <div class="form-group mb-3">
-                        <script>
-                            function myOnClickHandler(obj) {
-                                var input = document.getElementById("switch3");
-                                var imgurl = document.getElementById("img_url")
-                                console.log(input);
-                                if (obj.checked) {
-                                    console.log("打开");
-                                    input.setAttribute("value", "1");
-                                    imgurl.style.display = "block";
-                                } else {
-                                    console.log("关闭");
-                                    input.setAttribute("value", "0");
-                                    imgurl.style.display = "none";
-                                }
-                            }
-                        </script>
                         <label for="validationCustom01">完成状态</label>
-                        <input type="checkbox" name="icon" id="switch3" value="1" data-switch="success"
-                               onclick="myOnClickHandler(this)" checked>
+                        <input type="checkbox" name="icon" id="switch3" value="1" data-switch="success" checked>
                         <label id="switchurl" style="display:block;" for="switch3" data-on-label="Yes"
                                data-off-label="No"></label>
                     </div>
@@ -64,6 +47,19 @@ include_once 'Nav.php';
         }
     }
 
+    $(function() {
+        $('#switch3').on('change', function() {
+            var imgurl = document.getElementById('img_url');
+            if (this.checked) {
+                this.value = '1';
+                imgurl.style.display = 'block';
+            } else {
+                this.value = '0';
+                $('input[name="img"]').val('');
+                imgurl.style.display = 'none';
+            }
+        });
+    });
 </script>
 
 <?php

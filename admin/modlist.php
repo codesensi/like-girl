@@ -40,8 +40,7 @@ $imgurl = $_GET['imgurl'];
                     <div class="form-group mb-3">
                         <label for="validationCustom01">完成状态</label>
                         <input type="checkbox" name="icon" id="switch3" <?php if ($icon) { ?> checked<?php } ?>
-                               data-switch="success" value="<?php if ($icon) { ?> 1<?php } else { ?>0<?php } ?>"
-                               onclick="myOnClickHandler(this)">
+                               data-switch="success" value="<?php if ($icon) { ?> 1<?php } else { ?>0<?php } ?>">
                         <label style="display:block;" for="switch3" data-on-label="Yes" data-off-label="No"></label>
                     </div>
                     <div class="form-group mb-3" id="img_url"
@@ -71,7 +70,19 @@ $imgurl = $_GET['imgurl'];
         }
     }
 
-
+    $(function() {
+        $('#switch3').on('change', function() {
+            var imgurl = document.getElementById('img_url');
+            if (this.checked) {
+                this.value = '1';
+                imgurl.style.display = 'block';
+            } else {
+                this.value = '0';
+                $('input[name="imgurl"]').val('');
+                imgurl.style.display = 'none';
+            }
+        });
+    });
 </script>
 <?php
 include_once 'Footer.php';
