@@ -47,18 +47,22 @@ include_once 'Nav.php';
         }
     }
 
-    $(function() {
-        $('#switch3').on('change', function() {
-            var imgurl = document.getElementById('img_url');
-            if (this.checked) {
-                this.value = '1';
-                imgurl.style.display = 'block';
-            } else {
-                this.value = '0';
-                $('input[name="img"]').val('');
-                imgurl.style.display = 'none';
-            }
-        });
+    document.addEventListener('DOMContentLoaded', function() {
+        var checkbox = document.getElementById('switch3');
+        if (checkbox) {
+            checkbox.addEventListener('change', function() {
+                var imgurl = document.getElementById('img_url');
+                if (this.checked) {
+                    this.value = '1';
+                    imgurl.style.display = 'block';
+                } else {
+                    this.value = '0';
+                    var imgInput = document.querySelector('input[name="img"]');
+                    if (imgInput) imgInput.value = '';
+                    imgurl.style.display = 'none';
+                }
+            });
+        }
     });
 </script>
 

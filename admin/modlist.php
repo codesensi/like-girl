@@ -21,22 +21,6 @@ $imgurl = $_GET['imgurl'];
                         <input type="text" name="eventname" class="form-control" id="validationCustom01"
                                placeholder="请输入事件标题" value="<?php echo $name ?>" required>
                     </div>
-                    <script>
-                        function myOnClickHandler(obj) {
-                            var input = document.getElementById("switch3");
-                            var imgurl = document.getElementById("img_url")
-                            console.log(input);
-                            if (obj.checked) {
-                                console.log("打开");
-                                input.setAttribute("value", "1");
-                                imgurl.style.display = "block";
-                            } else {
-                                console.log("关闭");
-                                input.setAttribute("value", "0");
-                                imgurl.style.display = "none";
-                            }
-                        }
-                    </script>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">完成状态</label>
                         <input type="checkbox" name="icon" id="switch3" <?php if ($icon) { ?> checked<?php } ?>
@@ -70,18 +54,22 @@ $imgurl = $_GET['imgurl'];
         }
     }
 
-    $(function() {
-        $('#switch3').on('change', function() {
-            var imgurl = document.getElementById('img_url');
-            if (this.checked) {
-                this.value = '1';
-                imgurl.style.display = 'block';
-            } else {
-                this.value = '0';
-                $('input[name="imgurl"]').val('');
-                imgurl.style.display = 'none';
-            }
-        });
+    document.addEventListener('DOMContentLoaded', function() {
+        var checkbox = document.getElementById('switch3');
+        if (checkbox) {
+            checkbox.addEventListener('change', function() {
+                var imgurl = document.getElementById('img_url');
+                if (this.checked) {
+                    this.value = '1';
+                    imgurl.style.display = 'block';
+                } else {
+                    this.value = '0';
+                    var imgInput = document.querySelector('input[name="imgurl"]');
+                    if (imgInput) imgInput.value = '';
+                    imgurl.style.display = 'none';
+                }
+            });
+        }
     });
 </script>
 <?php
