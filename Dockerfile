@@ -22,7 +22,7 @@ ENV LANG="C.UTF-8" \
     TZ="Asia/Shanghai" \
     PUID=0 \
     PGID=0 \
-    UMASK=000"
+    UMASK=000
 
 ENV LIKEGIRL_SQLITE_PATH=/var/www/html/data/likegirl.sqlite
 ENV LIKEGIRL_SQLITE_SEED=/var/www/html/love_db.sql
