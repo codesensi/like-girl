@@ -293,6 +293,19 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var id = $("input[name='id']").val();
         var imgUrl = $("input[name='imgUrl']").val();
 
+        if ($.trim(imgDatd) === '') {
+            toastr["error"]("日期不能为空！", "Like_Girl");
+            return false;
+        }
+        if ($.trim(imgText) === '') {
+            toastr["error"]("图片描述不能为空！", "Like_Girl");
+            return false;
+        }
+        if ($.trim(imgUrl) === '') {
+            toastr["error"]("图片地址不能为空！", "Like_Girl");
+            return false;
+        }
+
         $.ajax({
             url: "ImgUpdaPost.php",
             data: {
@@ -323,6 +336,19 @@ if (!isset($_SESSION['loginadmin']) && $_SESSION['loginadmin'] == '') {
         var imgDatd = $("input[name='imgDatd']").val();
         var imgText = $("input[name='imgText']").val();
         var imgUrl = $("input[name='imgUrl']").val();
+
+        if ($.trim(imgDatd) === '') {
+            toastr["error"]("日期不能为空！", "Like_Girl");
+            return false;
+        }
+        if ($.trim(imgText) === '') {
+            toastr["error"]("图片描述不能为空！", "Like_Girl");
+            return false;
+        }
+        if ($.trim(imgUrl) === '') {
+            toastr["error"]("图片地址不能为空！", "Like_Girl");
+            return false;
+        }
 
         $.ajax({
             url: "ImgAddPost.php",
