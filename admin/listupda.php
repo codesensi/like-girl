@@ -10,7 +10,7 @@ include_once 'connect.php';
 if (!empty($img)) {
     $img = htmlspecialchars($_POST['imgurl'],ENT_QUOTES);
 } else {
-    $img = 0;
+    $img = '';
 }
 if (!$icon) {
     $icon = 0;
