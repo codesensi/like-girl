@@ -1,0 +1,8 @@
+# 强制 shell 脚本始终以 LF 行结束符存储和检出，
+# 避免在 Windows 检出时被 core.autocrlf 转成 CRLF，
+# 从而需要在 Linux 构建 Docker 镜像前手动执行 dos2unix。
+* text=auto
+
+*.sh text eol=lf
+docker-entrypoint.sh text eol=lf
+.gitattributes text eol=lf
