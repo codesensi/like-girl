@@ -12,7 +12,7 @@
 - 优化大部分文本显示
 - 【目录重构】按行业规范重构目录结构（`app/` 应用代码 + `public/` Web 根 + `storage/` 运行时数据），见下方说明
 
-#### 目录结构（重构后）
+#### 目录结构
 
 ```
 like-girl/
@@ -52,11 +52,3 @@ like-girl/
         - 配置数据库、密码等
         - 请认真填写安全码 尽量设置的`复杂难以猜测` 修改密码等敏感信息需输入安全码
 - 默认账号密码：`admin`/`love2026`
-
-#### 迁移状态（进行中）
-已完成的目录重构基础：
-1. 新增 `app/` 应用层（config + Core + Models + Admin 中间件），数据库访问统一为 `app/config/database.php` 单一入口（原 `connect.php` 与 `Database.php` 双连接已合并）。
-2. Docker 配置迁移至 `docker/`，Apache 文档根指向 `public/`。
-3. 数据库脚本迁移至 `database/`，运行时数据迁移至 `storage/`。
-
-待继续（第 4~8 步）：前端页面 MVC 化并迁入 `public/`、后台 CRUD 控制器化与归并、静态资源（`Style/`/`Botui/`/`admin/assets/`）迁入 `public/assets/`、清理旧目录。迁移完成前，旧的根目录页面与 `admin/` 目录仍可正常使用。
