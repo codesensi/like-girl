@@ -16,7 +16,7 @@
  -->
 
 <script>
-    $("#userPost").click(function () {
+    $(document).on('click', '#userPost', function () {
         var Webanimation = $("select[name='Webanimation']").val();
         var userName = $("input[name='userName']").val();
         var userQQ = $("input[name='userQQ']").val();
@@ -62,7 +62,7 @@
         }
         )
     })
-    $("#adminPost").click(function () {
+    $(document).on('click', '#adminPost', function () {
         var title = $("input[name='title']").val();
         var logo = $("input[name='logo']").val();
         var writing = $("input[name='writing']").val();
@@ -97,7 +97,7 @@
         }
         )
     })
-    $("#loveadminPost").click(function () {
+    $(document).on('click', '#loveadminPost', function () {
         var boy = $("input[name='boy']").val();
         var girl = $("input[name='girl']").val();
         var boyimg = $("input[name='boyimg']").val();
@@ -131,7 +131,7 @@
         )
     })
 
-    $("#CardadminPost").click(function () {
+    $(document).on('click', '#CardadminPost', function () {
         var bgimg = $("input[name='bgimg']").val();
         var card1 = $("input[name='card1']").val();
         var deci1 = $("input[name='deci1']").val();
@@ -170,7 +170,7 @@
         )
     })
 
-    $("#leavPPost").click(function () {
+    $(document).on('click', '#leavPPost', function () {
         var jiequ = $("input[name='jiequ']").val();
         var lanjiezf = $("textarea[name='lanjiezf']").val();
         $.ajax({
@@ -195,7 +195,7 @@
         )
     })
 
-    $("#littleupda").click(function () {
+    $(document).on('click', '#littleupda', function () {
         var id = $("input[name='id']").val();
         var articletitle = $("input[name='articletitle']").val();
         var articletext = $("textarea[name='articletext']").val();
@@ -235,7 +235,7 @@
         }
         )
     })
-    $("#littleAddPost").click(function () {
+    $(document).on('click', '#littleAddPost', function () {
         var articlename = $("select[name='articlename']").val();
         var articletitle = $("input[name='articletitle']").val();
         var articletext = $("textarea[name='articletext']").val();
@@ -280,7 +280,7 @@
         }
         )
     })
-    $("#ImgUpdaPost").click(function () {
+    $(document).on('click', '#ImgUpdaPost', function () {
         var imgDatd = $("input[name='imgDatd']").val();
         var imgText = $("input[name='imgText']").val();
         var id = $("input[name='id']").val();
@@ -325,7 +325,7 @@
         }
         )
     })
-    $("#ImgAddPost").click(function () {
+    $(document).on('click', '#ImgAddPost', function () {
         var imgDatd = $("input[name='imgDatd']").val();
         var imgText = $("input[name='imgText']").val();
         var imgUrl = $("input[name='imgUrl']").val();
@@ -368,7 +368,7 @@
         }
         )
     })
-    $("#listaddPost").click(function () {
+    $(document).on('click', '#listaddPost', function () {
         var eventname = $("input[name='eventname']").val();
         var icon = $("input[name='icon']").val();
         var img = $("input[name='img']").val();
@@ -403,7 +403,7 @@
         }
         )
     })
-    $("#ipAddPost").click(function () {
+    $(document).on('click', '#ipAddPost', function () {
         var ipdz = $("input[name='ipdz']").val();
         var bz = $("input[name='bz']").val();
 
@@ -436,7 +436,7 @@
         }
         )
     })
-    $("#listupda").click(function () {
+    $(document).on('click', '#listupda', function () {
         var eventname = $("input[name='eventname']").val();
         var icon = $("input[name='icon']").val();
         var imgurl = $("input[name='imgurl']").val();
@@ -473,7 +473,7 @@
         }
         )
     })
-    $("#aboutPost").click(function () {
+    $(document).on('click', '#aboutPost', function () {
         var title = $("input[name='title']").val();
         var aboutimg = $("input[name='aboutimg']").val();
         var info1 = $("input[name='info1']").val();
