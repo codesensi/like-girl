@@ -3,15 +3,11 @@
 .idea
 .reasonix
 reasonix.toml
-data/*.sqlite
-data/*.sqlite-*
-data/*.db
-data/*.db-*
 storage/data/*.sqlite
 storage/data/*.sqlite-*
 storage/data/*.db
 storage/data/*.db-*
 *.log
-storage/logs/*.log
 .DS_Store
 Thumbs.db
+docker/data

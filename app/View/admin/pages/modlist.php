@@ -1,0 +1,66 @@
+
+<?php // 修改事件表单 — 由 LoveListController@edit 渲染；$id/$icon/$name/$imgurl 由控制器注入 ?>
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title mb-3 size_18">修改事件</h4>
+
+                <form class="needs-validation" action="listupda.php" method="post" onsubmit="return check()" novalidate>
+                    <div class="form-group mb-3">
+                        <label for="validationCustom01">事件标题</label>
+                        <input type="text" name="eventname" class="form-control" id="validationCustom01"
+                               placeholder="请输入事件标题" value="<?php echo $name ?>" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="validationCustom01">完成状态</label>
+                        <input type="checkbox" name="icon" id="switch3" <?php if ($icon) { ?> checked<?php } ?>
+                               data-switch="success" value="<?php if ($icon) { ?> 1<?php } else { ?>0<?php } ?>">
+                        <label style="display:block;" for="switch3" data-on-label="Yes" data-off-label="No"></label>
+                    </div>
+                    <div class="form-group mb-3" id="img_url"
+                         style="display: <?php if ($icon) { ?> block<?php } else { ?>none<?php } ?>">
+                        <label for="validationCustom01">图片地址</label>
+                        <input type="text" name="imgurl" class="form-control" id="validationCustom01"
+                               placeholder="请输入图片地址（没有无需填写）" value="<?php echo $imgurl ?>">
+                    </div>
+                    <div class="form-group mb-3 text_right">
+                        <input name="id" value="<?php echo $id ?>" type="hidden">
+                        <button class="btn btn-primary" type="button" id="listupda">修改事件</button>
+                    </div>
+                </form>
+
+            </div> <!-- end card-body-->
+        </div> <!-- end card-->
+    </div> <!-- end col-->
+</div>
+
+
+<script>
+    function check() {
+        let title = document.getElementsByName('eventname')[0].value.trim();
+        if (title.length == 0) {
+            alert("事件不能为空");
+            return false;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var checkbox = document.getElementById('switch3');
+        if (checkbox) {
+            checkbox.addEventListener('change', function() {
+                var imgurl = document.getElementById('img_url');
+                if (this.checked) {
+                    this.value = '1';
+                    imgurl.style.display = 'block';
+                } else {
+                    this.value = '0';
+                    var imgInput = document.querySelector('input[name="imgurl"]');
+                    if (imgInput) imgInput.value = '';
+                    imgurl.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>

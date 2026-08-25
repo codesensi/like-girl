@@ -1,0 +1,165 @@
+<?php
+// 留言管理 — 由 LeavingController@index 渲染；$leavings、$leavCount、$toastr 由控制器注入
+$toastrMsg = $toastr;
+if ($toastrMsg): ?>
+<script>
+    $(function() {
+        toastr.options = { positionClass: 'toast-top-center', timeOut: 3000 };
+        <?php if ($toastrMsg === 'delete_success'): ?>
+        toastr.success('删除留言成功！');
+        <?php elseif ($toastrMsg === 'delete_fail'): ?>
+        toastr.error('删除留言失败！');
+        <?php elseif ($toastrMsg === 'param_error'): ?>
+        toastr.error('参数错误！');
+        <?php endif; ?>
+    });
+</script>
+<?php endif; ?>
+
+
+<link href="/admin/assets/css/vendor/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+<link href="/admin/assets/css/vendor/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+<link href="/admin/assets/css/vendor/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+<link href="/admin/assets/css/vendor/select.bootstrap4.css" rel="stylesheet" type="text/css" />
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="text-lg-right">
+                            <a class="fabu" href="/admin/leavP.php">
+                                <button type="button" class="btn btn-success mb-2 mr-2"><i
+                                        class=" mdi mdi-brightness-5"></i> 留言相关设置
+                                </button>
+                            </a>
+                        </div>
+                    </div><!-- end col-->
+                </div>
+                <h4 class="header-title mb-3 size_18">留言管理
+                    <button type="button" class="btn btn-secondary btn-sm btn-rounded margin_left">
+                        共<b><?php echo $leavCount ?></b>条
+                    </button>
+                </h4>
+                <table id="basic-datatable" class="table dt-responsive nowrap" width="100%">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>留言内容</th>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>QQ</th>
+                            <th>IP</th>
+                            <th style="width: 125px;">Action</th>
+                        </tr>
+                    </thead>
+
+                    <form class="needs-validation" action="littleupda.php" method="post">
+                        <tbody>
+                            <?php
+                            $SerialNumber = 0;
+                            foreach ($leavings as $row) {
+                                $SerialNumber++;
+                                $text = $row['text'];
+                                $time = $row['time'];
+                                $name = $row['name'];
+                                $qq   = $row['QQ'];
+                                $id   = $row['id'];
+                                $ip   = $row['ip'];
+                                $city = $row['city'];
+                                ?>
+                                <tr>
+                                    <td>
+                                        <div class="SerialNumber">
+                                            <?php echo $SerialNumber ?>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="textHide">
+                                            <?php echo escapeXSS($text) ?>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <small class="text-muted"><?php echo date('Y-m-d H:i:s', $time) ?>
+                                            <div class="color"><?php echo time_tran($time) ?></div>
+                                        </small>
+                                    </td>
+                                    <td>
+                                        <h5><span class="badge badge-success-lighten"><i
+                                                    class="mdi mdi-account-circle mr-1 rihjt-0"></i>
+                                                <?php echo $name ?></span>
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <?php echo $qq ?>
+                                    </td>
+                                    <td>
+                                        <h5>
+                                            <span
+                                                class="badge badge-danger-lighten"><?php echo $ip ? $ip : '127.0.0.1'; ?></span>
+                                        </h5>
+                                        <i><?php echo $city ? $city : '未知'; ?></i>
+                                    </td>
+                                    <td>
+                                        <a class="delete-btn" data-id="<?php echo $id ?>" data-content="<?= escapeXSS($text) ?>">
+                                            <button style="white-space: nowrap;" type="button"
+                                                class="btn btn-danger btn-rounded">
+                                                <i class=" mdi mdi-delete-empty mr-1"></i>删除
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                        </tbody>
+                </table>
+                </form>
+
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
+</div>
+
+
+<style>
+    .table td,
+    .table th {
+        white-space: nowrap;
+    }
+</style>
+<script>
+    document.addEventListener('click', function (e) {
+        let el = e.target.closest('.delete-btn');
+        if (!el) return;
+    
+        e.preventDefault();
+        let id = el.dataset.id;
+        let content = el.dataset.content;
+        del(id, content);
+    });
+    
+    function del(id, text) {
+        if (confirm('您确认要删除 ' + text + ' 内容吗')) {
+            location.href = 'delleav.php?id=' + id + '&text=' + text;
+        }
+    }
+</script>
+<!-- third party js -->
+<script src="/admin/assets/js/vendor/jquery.dataTables.min.js"></script>
+<script src="/admin/assets/js/vendor/dataTables.bootstrap4.js"></script>
+<script src="/admin/assets/js/vendor/dataTables.responsive.min.js"></script>
+<script src="/admin/assets/js/vendor/responsive.bootstrap4.min.js"></script>
+<script src="/admin/assets/js/vendor/dataTables.buttons.min.js"></script>
+<script src="/admin/assets/js/vendor/buttons.bootstrap4.min.js"></script>
+<script src="/admin/assets/js/vendor/buttons.html5.min.js"></script>
+<script src="/admin/assets/js/vendor/buttons.flash.min.js"></script>
+<script src="/admin/assets/js/vendor/buttons.print.min.js"></script>
+<script src="/admin/assets/js/vendor/dataTables.keyTable.min.js"></script>
+<script src="/admin/assets/js/vendor/dataTables.select.min.js"></script>
+<!-- third party js ends -->
+<!-- demo app -->
+<script src="/admin/assets/js/pages/demo.datatable-init.js"></script>
+<!-- end demo js-->

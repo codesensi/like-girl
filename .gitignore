@@ -1,8 +1,15 @@
+# 运行时 SQLite 数据（旧 data/ 与新的 storage/data/ 均不提交）
 data/*.sqlite
 data/*.sqlite-*
 data/*.db
 data/*.db-*
+storage/data/*.sqlite
+storage/data/*.sqlite-*
+storage/data/*.db
+storage/data/*.db-*
 *.log
+storage/logs/*.log
+storage/uploads/*
 
 .idea
 ip.txt

@@ -1,0 +1,13 @@
+# Like Girl — public/ 为 Web 根目录
+Options -Indexes
+
+# 禁止直接访问隐藏文件
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# 默认首页
+DirectoryIndex index.php
+
+# 允许通过 URL 直接访问的 PHP 入口（页面 / 接口）。应用代码位于
+# public/ 之外的 app/，无法被 URL 访问，因此无需在此列出。
