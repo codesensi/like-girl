@@ -33,9 +33,23 @@ like-girl/
 └── 根目录 php 页面        # (旧) 前端页面；迁移完整后移除
 ```
 
-> 说明：`app/`、`storage/`、`database/` 均位于 Web 根 `public/` 之外，无法被 URL 直接访问，解决了原 `ip.txt` 等敏感文件暴露的问题。
-
 #### 启动方法
+- 本地 PHP 开发服务器（不依赖 Docker）
+    - 环境要求
+        - 安装 PHP 7.4+（推荐 8.x），并确保 `php` 已加入系统 `PATH`，可在命令行执行 `php -v` 验证
+        - 启用所需 PHP 扩展（编辑 `php.ini`，去掉对应 `;extension=...` 前的分号，保存后重启 PHP）
+            - 默认 SQLite 模式（无需额外配置数据库）：启用 `pdo_sqlite`、`sqlite3`
+            - 传统 MySQL 模式（可选）：启用 `mysqli`（或 `pdo_mysql`）
+            - 常用依赖：`mbstring`、`curl`（如首页/接口依赖请一并启用）
+        - 可用 `php -m` 查看已加载的扩展列表，确认上述扩展已启用
+    - 启动命令（在项目根目录执行，Web 根为 `public/`）
+        - `php -S 127.0.0.1:8080 -t public`
+        - 其他端口示例：`php -S localhost:8000 -t public`
+    - 访问地址：`http://localhost:8080`
+    - 说明
+        - 本地 SQLite 数据库默认在 `storage/data/likegirl.sqlite`（首次访问自动由 `database/love_db.sql` 播种）
+        - 数据库、安全码等见 `app/config/config.php`；安全码默认 `Love`
+        - 若在 PhpStorm 中运行：在 `Settings → PHP` 配置好 PHP 解释器后，可直接添加 `PHP Built-in Web Server` 运行配置，文档根目录选择 `public/`
 - Docker + SQLite（推荐）
     - 构建并运行（文档根已指向 `public/`）：
       - `docker compose -f docker/docker-compose.yml up -d --build`
